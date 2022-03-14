@@ -11,7 +11,7 @@
     <div class="menuBar">
       <ul>
         <li class="active" id="menu1">
-          <a href="#">ホーム</a>
+          <a href="#" id="menu1">ホーム</a>
           <div class="subMenu-1">
             <ul>
               <li>
@@ -19,11 +19,12 @@
               </li>
               <li><a href="#">社訓</a></li>
               <li><a href="#">事業内容</a></li>
+              <li><a href="#">スローガン</a></li>
             </ul>
           </div>
         </li>
         <li id="menu2">
-          <a href="#">オンライン相談</a>
+          <a href="#" id="menu2">オンライン相談</a>
           <div class="subMenu-1">
             <ul>
               <li>
@@ -35,7 +36,7 @@
           </div>
         </li>
         <li id="menu3">
-          <a href="#">お問い合わせ</a>
+          <a href="#" id="menu3">お問い合わせ</a>
           <div class="subMenu-1">
             <ul>
               <li><a href="#">サイトについて</a></li>
@@ -45,7 +46,7 @@
           </div>
         </li>
         <li id="menu4">
-          <a href="#">ブログ</a>
+          <a href="#" id="menu4">ブログ</a>
           <div class="subMenu-1">
             <ul>
               <li><a href="#">サイトについて</a></li>
@@ -58,21 +59,23 @@
     </div>
 
     <script>
-      let menu1 = document.getElementById("menu1");
-      let menu2 = document.getElementById("menu2");
-      console.log(menu1);
-      menu1.addEventListener("click", () => {
-        console.log("clicked");
-        //active属性を付加する。
-        menu1.classList.toggle(".active");
-      });
-      menu2.addEventListener("click", () => {
-        console.log("clicked");
-        //active属性を付加する。
-        menu2.classList.toggle("active");
-      });
+      const menus = [];
+      for (let i = 1; i <= 4; i++) {
+        let menu = document.getElementById(`menu${i}`);
+        menus.push(menu);
+      }
+      console.log(menus); //0, 1, 2, 3
+
+      //クリックしたliタグだけ.activeをつける。それ以外はremoveしたい。
       document.addEventListener("click", (e) => {
-        console.log(e.target);
+        console.log(e.target.id);
+        menus.map((menu) => {
+          if (e.target.id === menu.id) {
+            menu.classList.add("active");
+          } else {
+            menu.classList.remove("active");
+          }
+        });
       });
     </script>
   </body>
