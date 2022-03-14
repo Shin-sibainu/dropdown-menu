@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ドロップダウンメニュー</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="menuBar">
+      <ul>
+        <li class="active" id="menu1">
+          <a href="#">ホーム</a>
+          <div class="subMenu-1">
+            <ul>
+              <li>
+                <a href="#">サイトについて</a>
+              </li>
+              <li><a href="#">社訓</a></li>
+              <li><a href="#">事業内容</a></li>
+            </ul>
+          </div>
+        </li>
+        <li id="menu2">
+          <a href="#">オンライン相談</a>
+          <div class="subMenu-1">
+            <ul>
+              <li>
+                <a href="#">サイトについて</a>
+              </li>
+              <li><a href="#">社訓</a></li>
+              <li><a href="#">事業内容</a></li>
+            </ul>
+          </div>
+        </li>
+        <li id="menu3">
+          <a href="#">お問い合わせ</a>
+          <div class="subMenu-1">
+            <ul>
+              <li><a href="#">サイトについて</a></li>
+              <li><a href="#">社訓</a></li>
+              <li><a href="#">事業内容</a></li>
+            </ul>
+          </div>
+        </li>
+        <li id="menu4">
+          <a href="#">ブログ</a>
+          <div class="subMenu-1">
+            <ul>
+              <li><a href="#">サイトについて</a></li>
+              <li><a href="#">社訓</a></li>
+              <li><a href="#">事業内容</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      let menu1 = document.getElementById("menu1");
+      let menu2 = document.getElementById("menu2");
+      console.log(menu1);
+      menu1.addEventListener("click", () => {
+        console.log("clicked");
+        //active属性を付加する。
+        menu1.classList.toggle(".active");
+      });
+      menu2.addEventListener("click", () => {
+        console.log("clicked");
+        //active属性を付加する。
+        menu2.classList.toggle("active");
+      });
+      document.addEventListener("click", (e) => {
+        console.log(e.target);
+      });
+    </script>
+  </body>
+</html>
